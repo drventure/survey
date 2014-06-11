@@ -1,0 +1,10 @@
+users
+
+Poll -> has_many questions
+
+Question -> has many answers
+
+Answer -> has_many responses
+
+Response
+  User
