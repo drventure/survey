@@ -1,0 +1,4 @@
+h1 Chart of #{@poll.name}
+= column_chart @question_data, discrete: true
+
+= link_to 'Back', list_polls_path

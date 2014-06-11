@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
-  attr_accessible :question
-
   belongs_to :poll
   has_many :answers
+  has_many :responses
+  accepts_nested_attributes_for :answers, allow_destroy: true
 end

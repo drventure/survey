@@ -1,0 +1,19 @@
+h1 = @poll.name
+= form_for :poll do |f|
+  table.table-striped.table-bordered
+    tr
+      th Question
+      th Answers
+    - @poll.questions.each do |question|
+      tr
+        td = question.question
+        td
+          - if question.question_type == 0
+              .radio-inline
+              - question.answers.each do |answer|
+                label
+                  input(type="radio" name="question_#{question.id}" value="#{answer.id}") = answer.answer
+          - else
+            input(type="text" name="question_#{question.id}")
+
+  = f.submit 'Submit responses'
