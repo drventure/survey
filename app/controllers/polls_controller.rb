@@ -34,18 +34,18 @@ class PollsController < ApplicationController
 
   def chart
     @poll = Poll.find(params[:id])
-    @question_data = []
-    @free = []
+    @choice_data = []
+    @free_data = []
     @poll.questions.each { |q|
       if q.question_type == 0 then
         #only multi choice graphs right now
         d = q.responses.joins(:answer).group(:answer).count
         d = d.each_with_object({}) {|(k, v), h| h[k.answer] = v}
-        @question_data.push({name: q.question, data: d})
+        @choice_data.push({name: q.question, data: d})
       else
         #free response question
         d = q.responses.group(:response).count
-        @free.push({name: q.question, data: d})
+        @free_data.push({question: q.question, data: d})
       end
     }
   end

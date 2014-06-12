@@ -3,6 +3,8 @@ table.table-bordered.table-hover
   - @polls.each do |poll|
     tr
       td
-        = link_to poll.name, take_poll_path(poll)
+        h2 = poll.name
       td
-        = link_to 'Chart', chart_poll_path(poll), class: 'btn btn-primary', role: 'button'
+        = link_to "Take the poll", take_poll_path(poll), class: 'btn btn-default'
+      td
+        = link_to 'Chart Results', chart_poll_path(poll), class: 'btn btn-default'

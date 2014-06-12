@@ -1,2 +1,8 @@
-h1 Welcome#index
-p Find me in app/views/welcome/index.html.erb
+h1 Welcome to Quick Polls
+p This is a very simple example of a polling system in Ruby.
+p It's written in Ruby 2.0, with Rails 4.
+p It uses ActiveAdmin for the administrative interface, which basically just consists of being able to create, edit and delete polls, their questions and possible answers.
+p Polls themselves can be selected from the Polls page. You can take a poll, as well as view statistics on the poll results.
+= link_to 'View Polls', list_polls_path, class: 'btn btn-default'
+= link_to 'Administer polls', admin_dashboard_path, class: 'btn btn-default'
+

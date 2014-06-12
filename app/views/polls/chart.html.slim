@@ -1,4 +1,15 @@
-h1 Chart of #{@poll.name}
-= column_chart @question_data, discrete: true
+h1 Analysis #{@poll.name}
+- @choice_data.each do |v|
+  = column_chart([v], discrete: true)
+table.table-bordered
+  tr
+    - @free_data.each do |question|
+      td = question[:question]
+      td
+        table.table-striped
+          - question[:data].each do |k, v|
+            tr
+              td #{k}
+              td #{v}
 
 = link_to 'Back', list_polls_path
