@@ -1,0 +1,4 @@
+== README
+
+Ruby 2.0
+Rails 4
